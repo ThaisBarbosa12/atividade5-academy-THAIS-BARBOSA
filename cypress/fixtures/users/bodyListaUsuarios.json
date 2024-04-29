@@ -1,0 +1,44 @@
+[
+  {
+    "id": "ca8efbac-3269-4d28-8e89-4cd53d73f197",
+    "name": "Thais Barbosa",
+    "email": "thaisbarbosa@yahoo.com",
+    "createdAt": "2024-04-28T21:11:00.495Z",
+    "updatedAt": "2024-04-28T21:11:00.495Z"
+  },
+  {
+    "id": "daaa1c9a-a73c-41a2-af29-74a0aff8c336",
+    "name": "Renato Nunes",
+    "email": "renatonunes@example.com",
+    "createdAt": "2024-04-28T21:11:37.274Z",
+    "updatedAt": "2024-04-28T21:11:37.274Z"
+  },
+  {
+    "id": "48f2301b-495b-405e-b605-b1ee001afdc7",
+    "name": "Edmilson Barbosa",
+    "email": "edmilsonbarbosa@gmail.com",
+    "createdAt": "2024-04-28T21:12:38.531Z",
+    "updatedAt": "2024-04-28T21:12:38.531Z"
+  },
+  {
+    "id": "c4bca583-4888-4a57-9c26-9f51651c67c5",
+    "name": "Elenita Araujo",
+    "email": "elenita.21.araujo@hotmail.com",
+    "createdAt": "2024-04-28T21:14:21.522Z",
+    "updatedAt": "2024-04-28T21:14:21.522Z"
+  },
+  {
+    "id": "de028241-1aeb-4d9f-83fb-47912beb4e56",
+    "name": "Maria Helloisa",
+    "email": "malo27@hotmail.com",
+    "createdAt": "2024-04-28T21:14:34.183Z",
+    "updatedAt": "2024-04-28T21:14:34.183Z"
+  },
+  {
+    "id": "22a6d5c8-f88c-4fc3-a187-ceae7a089e3b",
+    "name": "Nick da Silva",
+    "email": "nickelangelo@yahoo.com",
+    "createdAt": "2024-04-28T21:15:51.011Z",
+    "updatedAt": "2024-04-28T21:15:51.011Z"
+  }
+]
