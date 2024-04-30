@@ -12,6 +12,11 @@ describe("Criar Usuarios", () => {
     paginaCriacao.typeNome(name);
     paginaCriacao.typeEmail(email);
     paginaCriacao.clickButtonSalvar();
+    cy.get("div > div > div.go3958317564").should("be.visible");
+    cy.get("div > div > div.go3958317564").should(
+      "contain.text",
+      "Usuário salvo com sucesso!"
+    );
   });
   it("Deve exibir um erro ao tentar criar um usuario com formato de email invalido", function () {
     cy.get(paginaCriacao.linkVoltar).click();

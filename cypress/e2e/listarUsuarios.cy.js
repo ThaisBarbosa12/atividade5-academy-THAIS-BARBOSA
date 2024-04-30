@@ -6,11 +6,13 @@ describe("Listar Usuarios", () => {
   });
   it("Deve ser possivel buscar por uma lista de usuarios", () => {
     cy.listarUsuarios();
+    cy.wait("@listaUsuarios");
     cy.get("#listaUsuarios").should("be.visible");
   });
 
   it("Ao buscar uma lista de usuarios vazia, deve retornar uma opção de criar usuario", () => {
     cy.listarUsuariosVazio();
+    cy.wait("@listaVazia");
     cy.get("h3").should(
       "contain.text",
       "Ops! Não existe nenhum usuário para ser exibido."
@@ -19,6 +21,7 @@ describe("Listar Usuarios", () => {
   });
   it("Deve ser possível encontrar o nome de um usuario dentro da lista de usuarios", () => {
     cy.listarUsuarios();
+    cy.wait("@listaUsuarios");
     cy.get("#listaUsuarios").should("be.visible");
     cy.get(':nth-child(1) > .sc-dAbbOL > [data-test="userDataName"]').should(
       "contain.text",
@@ -27,6 +30,7 @@ describe("Listar Usuarios", () => {
   });
   it("Deve ser possível encontrar o email de um usuario dentro da lista de usuarios", () => {
     cy.listarUsuarios();
+    cy.wait("@listaUsuarios");
     cy.get("#listaUsuarios").should("be.visible");
     cy.get(':nth-child(1) > .sc-dAbbOL > [data-test="userDataEmail"]').should(
       "contain.text",
@@ -35,6 +39,7 @@ describe("Listar Usuarios", () => {
   });
   it("Ao retornar uma lista de usuarios, deve existir um botão para deletar o usuario", () => {
     cy.listarUsuarios();
+    cy.wait("@listaUsuarios");
     cy.get("#listaUsuarios").should("be.visible");
     cy.get(':nth-child(1) > .sc-feUZmu > [data-test="userDataDelete"]').should(
       "be.visible"
@@ -42,6 +47,7 @@ describe("Listar Usuarios", () => {
   });
   it("Ao retornar uma lista de usuarios, deve existir um botão para ver detalhes do usuario", () => {
     cy.listarUsuarios();
+    cy.wait("@listaUsuarios");
     cy.get("#listaUsuarios").should("be.visible");
     cy.get(":nth-child(1) > .sc-feUZmu > #userDataDetalhe").should(
       "be.visible"
