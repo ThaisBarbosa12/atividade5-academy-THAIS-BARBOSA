@@ -8,14 +8,12 @@ describe("Criar Usuarios", () => {
     cy.visit("");
   });
   it("Deve ser possivel criar um usuario ao preencher os campos nome e email com dados validos", function () {
-    cy.intercept("POST", "api/v1/users/novo").as("usuarioCriado");
     cy.get(paginaCriacao.linkVoltar).click();
     paginaCriacao.typeNome(name);
     paginaCriacao.typeEmail(email);
     paginaCriacao.clickButtonSalvar();
   });
   it("Deve exibir um erro ao tentar criar um usuario com formato de email invalido", function () {
-    cy.intercept("POST", "api/v1/users/novo").as("usuarioCriado");
     cy.get(paginaCriacao.linkVoltar).click();
     paginaCriacao.typeNome(name);
     paginaCriacao.typeEmail("thais.barbosa.com.br");
@@ -25,7 +23,6 @@ describe("Criar Usuarios", () => {
     cy.get(".sc-cPiKLX").should("contain.text", "Formato de e-mail inválido");
   });
   it("Deve exibir um erro ao tentar criar um usuario sem preencher o campo nome", function () {
-    cy.intercept("POST", "api/v1/users/novo").as("usuarioCriado");
     cy.get(paginaCriacao.linkVoltar).click();
     paginaCriacao.typeEmail(email);
     paginaCriacao.clickButtonSalvar();
@@ -34,7 +31,6 @@ describe("Criar Usuarios", () => {
     cy.get(".sc-cPiKLX").should("contain.text", "O campo nome é obrigatório.");
   });
   it("Deve exibir um erro ao tentar criar um usuario sem preencher o campo email", function () {
-    cy.intercept("POST", "api/v1/users/novo").as("usuarioCriado");
     cy.get(paginaCriacao.linkVoltar).click();
     paginaCriacao.typeNome(name);
     paginaCriacao.clickButtonSalvar();
@@ -45,7 +41,6 @@ describe("Criar Usuarios", () => {
     );
   });
   it("Deve exibir um erro ao tentar criar um usuario com nome < 4 caracteres", function () {
-    cy.intercept("POST", "api/v1/users/novo").as("usuarioCriado");
     cy.get(paginaCriacao.linkVoltar).click();
     paginaCriacao.typeNome("tha");
     paginaCriacao.typeEmail(email);
@@ -58,7 +53,6 @@ describe("Criar Usuarios", () => {
     );
   });
   it("Deve exibir um erro ao tentar criar um usuario com nome > 100 caracteres", function () {
-    cy.intercept("POST", "api/v1/users/novo").as("usuarioCriado");
     cy.get(paginaCriacao.linkVoltar).click();
     paginaCriacao.typeNome(
       "thais barbosa da silva thais barbosa da silva thais barbosa da silva thais barbosa da silva thais bar"
@@ -73,7 +67,6 @@ describe("Criar Usuarios", () => {
     );
   });
   it("Deve exibir um erro ao tentar criar um usuario com email > 60 caracteres", function () {
-    cy.intercept("POST", "api/v1/users/novo").as("usuarioCriado");
     cy.get(paginaCriacao.linkVoltar).click();
     paginaCriacao.typeNome(name);
     paginaCriacao.typeEmail(
@@ -101,6 +94,7 @@ describe("Criar Usuarios", () => {
     cy.stub().as("stubErro");
     cy.on("window:alert", this.stubErro);
 
+    cy.wait("@postUser");
     cy.contains("Este e-mail já é utilizado por outro usuário.").should(
       "be.visible"
     );

@@ -17,7 +17,6 @@ describe("Listar Usuarios", () => {
     );
     cy.get("p").should("contain.text", "Cadastre um novo usuário");
   });
-
   it("Deve ser possível encontrar o nome de um usuario dentro da lista de usuarios", () => {
     cy.listarUsuarios();
     cy.get("#listaUsuarios").should("be.visible");
@@ -26,7 +25,6 @@ describe("Listar Usuarios", () => {
       "Nome: Thais Barbosa"
     );
   });
-
   it("Deve ser possível encontrar o email de um usuario dentro da lista de usuarios", () => {
     cy.listarUsuarios();
     cy.get("#listaUsuarios").should("be.visible");
